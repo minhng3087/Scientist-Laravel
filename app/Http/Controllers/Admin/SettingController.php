@@ -42,7 +42,6 @@ class SettingController extends Controller
                 $data->banner = $img_banner;
             }
             $data->name = $request->txtName;
-            $data->name_eg = $request->txtNameEng;
             $data->maps = $request->maps;
             $data->links1 = $request->links1; //facebook
             $data->links2 = $request->links2; //youtube
@@ -54,7 +53,6 @@ class SettingController extends Controller
             $data->copyright = $request->copyright;
             $data->email = $request->txtEmail;
             $data->address = $request->txtAddress;
-            $data->address_eg = $request->txtAddressEng;
             $data->analytics = $request->txtAnalytics;
             $data->content = $request->txtContent;
             $data->codechat = $request->txtCodeChat;

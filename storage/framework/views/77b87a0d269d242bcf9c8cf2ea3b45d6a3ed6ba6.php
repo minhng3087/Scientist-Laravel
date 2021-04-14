@@ -1,26 +1,25 @@
-@extends('backend.master')
-@section('content')
-@section('controller','Setting')
-@section('action','Edit')
+<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('controller','Setting'); ?>
+<?php $__env->startSection('action','Edit'); ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-   	@yield('controller')
-    <small>@yield('action')</small>
+   	<?php echo $__env->yieldContent('controller'); ?>
+    <small><?php echo $__env->yieldContent('action'); ?></small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="backend"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="javascript:">@yield('controller')</a></li>
-    <li class="active">@yield('action')</li>
+    <li><a href="javascript:"><?php echo $__env->yieldContent('controller'); ?></a></li>
+    <li class="active"><?php echo $__env->yieldContent('action'); ?></li>
   </ol>
 </section>
 <!-- Main content -->
 <section class="content">
     <div class="box">
-    	@include('backend.messages_error')
+    	<?php echo $__env->make('backend.messages_error', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="box-body">
         	<form method="post" action="backend/setting/update" enctype="multipart/form-data">
-        		<input type="hidden" name="_token" value="{!! csrf_token() !!}" />
+        		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>" />
       			<div class="nav-tabs-custom">
 	                <ul class="nav nav-tabs">
 	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Thông tin chung</a></li>
@@ -33,73 +32,73 @@
 									<div class="clearfix"></div>
 							    	<div class="form-group">
 								      	<label for="ten">Tiêu đề</label>
-								      	<input type="text" name="txtName" id="txtName" value="{!! old('txtName', isset($data) ? @$data->name : null) !!}"  class="form-control" />
+								      	<input type="text" name="txtName" id="txtName" value="<?php echo old('txtName', isset($data) ? @$data->name : null); ?>"  class="form-control" />
 									</div>
 									<div class="form-group">
 								      	<label for="ten">Tiêu đề(English)</label>
-								      	<input type="text" name="txtNameEng" id="txtNameEng" value="{!! old('txtNameEng', isset($data) ? @$data->name_eg : null) !!}"  class="form-control" />
+								      	<input type="text" name="txtNameEng" id="txtNameEng" value="<?php echo old('txtNameEng', isset($data) ? @$data->name_eg : null); ?>"  class="form-control" />
 									</div>
 									<div class="form-group">
 								      	<label for="ten">Điện thoại</label>
-								      	<input type="text" name="txtPhone" value="{!! old('txtPhone', isset($data) ? @$data->phone : null) !!}"  class="form-control" />
+								      	<input type="text" name="txtPhone" value="<?php echo old('txtPhone', isset($data) ? @$data->phone : null); ?>"  class="form-control" />
 									</div>
                                    <div class="form-group" >
 								      	<label for="ten">Điện thoại 2</label>
-								      	<input type="text" name="hotline" value="{!! old('hotline', isset($data) ? @$data->hotline : null) !!}"  class="form-control" />
+								      	<input type="text" name="hotline" value="<?php echo old('hotline', isset($data) ? @$data->hotline : null); ?>"  class="form-control" />
 									</div>
 								    <div class="form-group">
 								      	<label for="ten">Email</label>
-								      	<input type="text" name="txtEmail" value="{!! old('txtEmail', isset($data) ? @$data->email : null) !!}"  class="form-control" />
+								      	<input type="text" name="txtEmail" value="<?php echo old('txtEmail', isset($data) ? @$data->email : null); ?>"  class="form-control" />
 									</div>
 									<div class="form-group">
 								      	<label for="ten">Address</label>
-								      	<input type="text" name="txtAddress" value="{!! old('txtAddress', isset($data) ? @$data->address : null) !!}"  class="form-control" />
+								      	<input type="text" name="txtAddress" value="<?php echo old('txtAddress', isset($data) ? @$data->address : null); ?>"  class="form-control" />
 									</div>
 									<div class="form-group">
 								      	<label for="ten">Address(English)</label>
-								      	<input type="text" name="txtAddressEng" value="{!! old('txtAddressEng', isset($data) ? @$data->address_eg : null) !!}"  class="form-control" />
+								      	<input type="text" name="txtAddressEng" value="<?php echo old('txtAddressEng', isset($data) ? @$data->address_eg : null); ?>"  class="form-control" />
 									</div>
 									<div class="form-group">
 								      	<label for="codechat">Codechat</label>
-								      	<input type="text" name="txtCodechat" value="{!! old('txtCodechat', @$data->codechat) !!}" class="form-control" />
+								      	<input type="text" name="txtCodechat" value="<?php echo old('txtCodechat', @$data->codechat); ?>" class="form-control" />
 									</div>
                                     <div class="form-group">
 								      	<label for="ten">Link(facebook)</label>
-								      	<input type="text" name="links1" value="{{ old('links1', @$data->links1) }}"  class="form-control" />
+								      	<input type="text" name="links1" value="<?php echo e(old('links1', @$data->links1)); ?>"  class="form-control" />
 									</div>
                                     <div class="form-group " >
 								      	<label for="ten">Link(Yoube)</label>
-								      	<input type="text" name="links2" value="{!! old('links2', isset($data) ? @$data->links2 : null) !!}"  class="form-control" />
+								      	<input type="text" name="links2" value="<?php echo old('links2', isset($data) ? @$data->links2 : null); ?>"  class="form-control" />
 									</div>
                                     <div class="form-group " >
 								      	<label for="ten">Link(twitter)</label>
-								      	<input type="text" name="links3" value="{!! old('links3', isset($data) ? @$data->links3 : null) !!}"  class="form-control" />
+								      	<input type="text" name="links3" value="<?php echo old('links3', isset($data) ? @$data->links3 : null); ?>"  class="form-control" />
 									</div>
                                     <div class="form-group" >
 								      	<label for="ten">Link(G+)</label>
-								      	<input type="text" name="links4" value="{!! old('links4', isset($data) ? @$data->links4 : null) !!}"  class="form-control" />
+								      	<input type="text" name="links4" value="<?php echo old('links4', isset($data) ? @$data->links4 : null); ?>"  class="form-control" />
 									</div>
                                     <div class="form-group" >
 								      	<label for="ten">Link(Instagram)</label>
-								      	<input type="text" name="links5" value="{!! old('links5', isset($data) ? @$data->links5 : null) !!}"  class="form-control" />
+								      	<input type="text" name="links5" value="<?php echo old('links5', isset($data) ? @$data->links5 : null); ?>"  class="form-control" />
 									</div>
                                    <div class="form-group" >
 								      	<label for="ten">Copyright</label>
-								      	<input type="text" name="copyright" value="{!! old('copyright', isset($data) ? @$data->copyright : null) !!}"  class="form-control" />
+								      	<input type="text" name="copyright" value="<?php echo old('copyright', isset($data) ? @$data->copyright : null); ?>"  class="form-control" />
 									</div>
                                     <div class="form-group hidden">
 								      	<label for="desc">Code chat</label>
-								      	<textarea name="txtCodechat" rows="5" class="form-control">{{ old('txtCodechat', isset($data) ? $data->codechat : null) }}</textarea>
+								      	<textarea name="txtCodechat" rows="5" class="form-control"><?php echo e(old('txtCodechat', isset($data) ? $data->codechat : null)); ?></textarea>
 									</div>
 									<div class="form-group hidden">
 								      	<label for="desc">Analytics</label>
-								      	<textarea name="txtAnalytics" rows="5" class="form-control">{{ old('txtAnalytics', isset($data) ? $data->analytics : null) }}</textarea>
+								      	<textarea name="txtAnalytics" rows="5" class="form-control"><?php echo e(old('txtAnalytics', isset($data) ? $data->analytics : null)); ?></textarea>
 									</div>
                                     <div class="clearfix"></div>
                                     <div class="box box-info">
         				                <h3 class="box-title">Maps(Liên hệ)</h3>
         				                <div class="box-body pad">
-        				        			<textarea name="maps" cols="50" rows="5" style="width: 100%;">{{!! old('maps', isset($data) ? $data->maps : null) !!}}</textarea>
+        				        			<textarea name="maps" cols="50" rows="5" style="width: 100%;">{<?php echo old('maps', isset($data) ? $data->maps : null); ?>}</textarea>
         				        		</div>
         				        	</div>
 								</div>
@@ -118,7 +117,7 @@
                                     <div class="box-body no-padding">
                                       <ul class="nav nav-pills nav-stacked">
                                         <li id="right-col-li" >
-											<img id="output" src="{{ asset('upload/hinhanh/'.$data->favico) }}" />
+											<img id="output" src="<?php echo e(asset('upload/hinhanh/'.$data->favico)); ?>" />
 											<input class="max-with" name="fImagesFavico" type="file"  onchange="loadFile(event)"/>
                                         </li>
                                       </ul>
@@ -136,7 +135,7 @@
                                         <div class="box-body no-padding">
                                           <ul class="nav nav-pills nav-stacked">
                                             <li id="right-col-li" >
-                                              		   <img style="max-width: 100%;" src="{{ asset('upload/hinhanh/'.$data->banner) }}" />
+                                              		   <img style="max-width: 100%;" src="<?php echo e(asset('upload/hinhanh/'.$data->banner)); ?>" />
                                                        <input class="max-with" name="banner" type="file"  />
                                             </li>
                                           </ul>
@@ -160,7 +159,7 @@
 					                </div>
 				                </div>
 				                <div class="box-body pad">
-				        			<textarea name="txtContent" id="txtContent" cols="50" rows="5">{{!! old('txtContent', isset($data) ? $data->content : null) !!}}</textarea>
+				        			<textarea name="txtContent" id="txtContent" cols="50" rows="5">{<?php echo old('txtContent', isset($data) ? $data->content : null); ?>}</textarea>
 				        		</div>
 				        	</div>
 	                    	<div class="clearfix"></div>
@@ -173,7 +172,9 @@
         </div><!-- /.box-body -->
     </div><!-- /.box -->
 </section><!-- /.content -->
-@endsection()
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('backend.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
